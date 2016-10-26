@@ -1,0 +1,4 @@
+[
+	{ "keys": ["super+]"], "command": "indent_text" },
+	{ "keys": ["super+["], "command": "unindent_text" }
+]

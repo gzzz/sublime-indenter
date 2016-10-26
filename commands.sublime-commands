@@ -1,0 +1,10 @@
+[
+	{
+		"caption": "Indenter: indent",
+		"command": "indent_text"
+	},
+	{
+		"caption": "Indenter: unindent",
+		"command": "unindent_text"
+	}
+]

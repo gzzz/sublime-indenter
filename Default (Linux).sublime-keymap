@@ -1,0 +1,4 @@
+[
+	{ "keys": ["ctrl+]"], "command": "indent_text" },
+	{ "keys": ["ctrl+["], "command": "unindent_text" }
+]
