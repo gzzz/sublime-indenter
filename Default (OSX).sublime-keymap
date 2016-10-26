@@ -1,4 +1,4 @@
 [
-	{ "keys": ["super+]"], "command": "indent_text" },
-	{ "keys": ["super+["], "command": "unindent_text" }
+	{ "keys": ["super+]"], "command": "indent_lines" },
+	{ "keys": ["super+["], "command": "unindent_lines" }
 ]
