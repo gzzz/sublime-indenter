@@ -1,4 +1,5 @@
 [
 	{ "keys": ["ctrl+]"], "command": "indent_lines" },
-	{ "keys": ["ctrl+["], "command": "unindent_lines" }
+	{ "keys": ["ctrl+["], "command": "unindent_lines" },
+	{ "keys": ["tab"], "command": "indent_lines" }
 ]
