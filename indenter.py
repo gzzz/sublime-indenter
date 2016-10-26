@@ -81,7 +81,12 @@ class Indenter(object):
 			if begin < whole_region.begin():
 				begin = whole_region.begin()
 
-			processed_selections.append(sublime.Region(begin, end))
+			if region.a < region.b:
+				region = sublime.Region(begin, end)
+			else:
+				region = sublime.Region(end, begin)
+
+			processed_selections.append(region)
 
 		if processed_selections:
 			selections.clear()
