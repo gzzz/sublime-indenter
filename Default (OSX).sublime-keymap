@@ -1,5 +1,5 @@
 [
 	{ "keys": ["super+]"], "command": "indent_lines" },
 	{ "keys": ["super+["], "command": "unindent_lines" },
-	{ "keys": ["tab"], "command": "indent_lines" }
+	{ "keys": ["super+alt+tab"], "command": "indent_lines" }
 ]

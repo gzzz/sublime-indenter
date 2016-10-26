@@ -54,7 +54,7 @@ class Indenter(object):
 			delta = 0
 			offset = 0
 
-			if not whole_region.empty():
+			if not region.empty():
 				lines = view.lines(whole_region)
 
 				for line in lines:
@@ -69,8 +69,12 @@ class Indenter(object):
 							offset = len(self.indent_characters)
 
 					text += line_str
+			else:
+				text = processor(view.substr(view.full_line(region)))
+				offset = len(self.indent_characters)
+				delta = offset
 
-				view.replace(edit, whole_region, text)
+			view.replace(edit, whole_region, text)
 
 			if delta < 0:
 				offset = -offset
