@@ -65,7 +65,7 @@ class Indenter(object):
 						line_str = processor(line_str)
 						delta += len(line_str) - line_str_len
 
-						if line == lines[0] and delta != 0:
+						if line == lines[0] and line.begin() > region.begin() and delta != 0:
 							offset = len(self.indent_characters)
 
 					text += line_str
