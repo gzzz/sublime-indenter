@@ -19,14 +19,18 @@ class Indenter(object):
 				view.run_command('detect_indentation')
 
 				use_spaces = view.settings().get('translate_tabs_to_spaces', False)
+				tab_size = view.settings().get('tab_size', 4)
+
+				space_indents = u' ' * tab_size
+				tab_indents = u'	'
 
 				if use_spaces:
-					self.indent_characters = u' ' * view.settings().get('tab_size', 4)
+					self.indent_characters = space_indents
 				else:
-					self.indent_characters = u'	'
+					self.indent_characters = tab_indents
 
 				self.commented = re.compile(u'^(?P<comment>%s+ ?)(?P<tail>.+)' % self.comment_characters, re.DOTALL)
-				self.indented = re.compile(u'^(?P<first_indent>%s)(?P<tail>.+)' % self.indent_characters, re.DOTALL)
+				self.indented = re.compile(u'^(?P<first_indent>(?:%s|%s))(?P<tail>.+)' % (tab_indents, space_indents), re.DOTALL)
 
 #				print 'indenter', self.commented.pattern, self.indented.pattern
 
