@@ -29,7 +29,7 @@ class Indenter(object):
 				else:
 					self.indent_characters = tab_indents
 
-				self.commented = re.compile(u'^(?P<comment>%s+ ?)(?P<tail>.+)' % self.comment_characters, re.DOTALL)
+				self.commented = re.compile(u'^(?P<comment>(?:%s)+ ?)(?P<tail>.+)' % re.escape(self.comment_characters), re.DOTALL)
 				self.indented = re.compile(u'^(?P<first_indent>(?:%s|%s))(?P<tail>.+)' % (tab_indents, space_indents), re.DOTALL)
 
 #				print 'indenter', self.commented.pattern, self.indented.pattern
