@@ -77,11 +77,13 @@ class Indenter(object):
 				if delta < 0:
 					offset = -offset
 			else:
-				line_str = view.substr(view.full_line(region))
-
+				line = view.full_line(region)
+				line_str = view.substr(line)
 				text = processor(line_str)
-				delta = len(text) - len(line_str)
-				offset = delta
+
+				if line.begin() != region.begin():
+					delta = len(text) - len(line_str)
+					offset = delta
 
 			view.replace(edit, whole_region, text)
 
