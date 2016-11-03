@@ -65,12 +65,15 @@ class Indenter(object):
 					line_str = view.substr(view.full_line(line))
 					line_str_len = len(line_str)
 
-					if len(line_str.replace(self.comment_characters, '').strip()) > 0:
+					if line.intersection(region).size():
 						line_str = processor(line_str)
-						delta += len(line_str) - line_str_len
+						line_delta = len(line_str) - line_str_len
 
-						if line == lines[0] and line.begin() != region.begin() and delta != 0:
+						if line == lines[0] and line.begin() != region.begin() and line_delta != 0:
+#							shifts selection start for first line
 							offset = len(self.indent_characters)
+
+						delta += line_delta
 
 					text += line_str
 
